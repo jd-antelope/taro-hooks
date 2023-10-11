@@ -1,0 +1,35 @@
+{
+  "name": "@jd-antelope/core",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "DEV=true tsup"
+  },
+  "files": [
+    "/dist"
+  ],
+  "author": "",
+  "devDependencies": {
+    "@tarojs/taro": "^3.6.11",
+    "@tarojs/taro-h5": "^3.6.11"
+  },
+  "peerDependencies": {
+    "@tarojs/taro": ">= 3.4.x",
+    "@tarojs/taro-h5": ">= 3.4.x",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "typescript": ">=5.0.4"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.10"
+  }
+}

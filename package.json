@@ -1,0 +1,32 @@
+{
+  "name": "@jd-antelope/taro-hooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm run --r --filter \"./packages/**\" build",
+    "changeset:release": "pnpm build && changeset publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jd-antelope/taro-hooks.git"
+  },
+  "author": "hawley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jd-antelope/taro-hooks/issues"
+  },
+  "homepage": "https://github.com/jd-antelope/taro-hooks#readme",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.5",
+    "@changesets/cli": "^2.26.2",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "fs-extra": "^11.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.11"
+  }
+}

@@ -1,0 +1,19 @@
+*.local
+.DS_Store
+.eslintcache
+.next
+.pnpm-debug.log*
+cache
+coverage
+dist
+node_modules
+tsconfig.tsbuildinfo
+./wagmi.config.ts
+
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.envrc
