@@ -1,8 +1,5 @@
-import { default as fs } from 'fs-extra'
 import type { Format, Options } from 'tsup'
-
-import path from 'path'
-
+import mdStart from './md'
 type GetConfig = Omit<
   Options,
   'bundle' | 'clean' | 'dts' | 'entry' | 'format'
@@ -24,6 +21,7 @@ export function getConfig({ dev, noExport, ...options }: GetConfig): Options {
     sourcemap: true,
     shims: true,
     async onSuccess() {
+      mdStart()
       console.log('onSuccess')
     },
     ...options,

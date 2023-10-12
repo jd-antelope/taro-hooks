@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "docs:dev": "npx vitepress dev",
+    "docs:build": "npx vitepress build",
+    "docs:preview": "npx vitepress preview"
+  }
+}

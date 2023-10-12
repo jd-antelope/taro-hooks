@@ -1,11 +1,11 @@
 {
-  "name": "@jd-antelope/taro-hooks",
-  "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "pnpm run --r --filter \"./packages/**\" build",
-    "changeset:release": "pnpm build && changeset publish"
+    "changeset:release": "pnpm build && changeset publish",
+    "changeset:version": "changeset version && pnpm install --lockfile-only"
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,17 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.26.2",
+    "@types/fs-extra": "^11.0.2",
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13",
     "fs-extra": "^11.1.1",
+    "globby": "^13.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "ts-node": "^10.9.1",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "vitepress": "1.0.0-rc.20"
   }
 }

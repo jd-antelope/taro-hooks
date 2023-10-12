@@ -1,7 +1,7 @@
-import useCountdown from "./useCountDown";
-import useLatest from "./useLatest";
+import useCountDown from "./use-count-down";
+import useLatest from "./use-latest";
 
 export {
-  useCountdown,
+  useCountDown,
   useLatest
 }

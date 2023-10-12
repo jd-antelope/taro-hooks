@@ -1,6 +1,6 @@
 {
-  "name": "@jd-antelope/core",
-  "version": "1.0.0",
+  "name": "@jd-antelope/taro-hooks",
+  "version": "0.0.1-alpha.0",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -31,5 +31,9 @@
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.11.10"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
