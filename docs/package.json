@@ -1,7 +1,8 @@
 {
+  "name": "@jd-antelope/taro-hooks-docs",
   "scripts": {
-    "docs:dev": "npx vitepress dev",
-    "docs:build": "npx vitepress build",
-    "docs:preview": "npx vitepress preview"
+    "dev": "npx vitepress dev",
+    "build": "npx vitepress build",
+    "preview": "npx vitepress preview"
   }
 }

@@ -1,11 +1,14 @@
 {
   "private": true,
+  "version": "0.0.1-alpha.1",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "docs:dev": "pnpm --filter ./docs dev",
+    "docs:build": "pnpm -r --filter './packages/**' build",
     "build": "pnpm run --r --filter \"./packages/**\" build",
     "changeset:release": "pnpm build && changeset publish",
-    "changeset:version": "changeset version && pnpm install --lockfile-only"
+    "changeset:version": "changeset && changeset version && pnpm install --lockfile-only"
   },
   "repository": {
     "type": "git",

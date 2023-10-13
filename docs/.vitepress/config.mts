@@ -23,8 +23,9 @@ export default defineConfig({
         text: 'Guide',
         items: [
           { text: 'UseCountDown', link: '/guide/use-count-down' },
+          { text: 'UseLatest', link: '/guide/use-latest' }
         ]
-      }
+      },
     ],
 
     socialLinks: [
