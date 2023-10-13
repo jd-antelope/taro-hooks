@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "taro hooks",
-  description: "A VitePress Site",
+  description: "为 Taro 而设计的 Hooks Library",
   base: '/taro-hooks/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -13,7 +13,7 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Guide',
+        text: 'Hooks',
         items: [
           { text: 'UseCountDown', link: '/guide/use-count-down' },
           { text: 'UseLatest', link: '/guide/use-latest' }

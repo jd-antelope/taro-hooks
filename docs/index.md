@@ -4,22 +4,22 @@ layout: home
 
 hero:
   name: "taro hooks"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  text: "为 Taro 而设计的 Hooks Library"
+  tagline: 
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: 快速开始
       link: /guide/use-count-down
     - theme: alt
-      text: API Examples
+      text: hooks
       link: /guide/use-latest
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: typescript
+    details: 使用typescript开发，完整类型定义
+  - title: ahooks
+    details: useRequest，结合ahooks扩展日常需要
+  - title: Taro API
+    details: 全api接入，完全hook
 ---
 
