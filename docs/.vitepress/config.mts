@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "taro hooks",
   description: "A VitePress Site",
+  base: '/taro-hooks/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
