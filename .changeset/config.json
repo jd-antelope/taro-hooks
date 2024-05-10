@@ -8,6 +8,6 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@jd-antelope/taro-hooks-docs"
+    "@qzc/taro-hooks-docs"
   ]
 }

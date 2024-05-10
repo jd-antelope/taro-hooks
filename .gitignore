@@ -17,3 +17,5 @@ tsconfig.tsbuildinfo
 .env.test.local
 .env.production.local
 .envrc
+
+dist/

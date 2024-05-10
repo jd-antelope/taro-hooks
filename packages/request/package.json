@@ -1,6 +1,6 @@
 {
-  "name": "@jd-antelope/taro-hooks-request",
-  "version": "0.0.1",
+  "name": "@qzc/use-request",
+  "version": "0.0.1-alpha.0",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -13,15 +13,12 @@
     "/dist"
   ],
   "author": "",
-  "devDependencies": {
-    "@tarojs/taro": "^3.6.11",
-    "@tarojs/taro-h5": "^3.6.11"
-  },
   "peerDependencies": {
     "@tarojs/taro": ">= 3.4.x",
     "@tarojs/taro-h5": ">= 3.4.x",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "typescript": ">=5.0.4"
+    "typescript": ">=5.0.4",
+    "lodash": ">=4.17.21"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -30,10 +27,10 @@
   },
   "license": "ISC",
   "dependencies": {
-    "dayjs": "^1.11.10"
+    "@qzc/taro-hooks": "workspace:^"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://registry.m.jd.com/"
   }
 }

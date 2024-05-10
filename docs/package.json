@@ -1,5 +1,5 @@
 {
-  "name": "@jd-antelope/taro-hooks-docs",
+  "name": "@qzc/taro-hooks-docs",
   "scripts": {
     "dev": "npx vitepress dev",
     "build": "npx vitepress build",

@@ -1,4 +1,6 @@
-export function useRequest () {
-  console.log('useRequest')
-  console.log('useRequest')
-}
+import useRequest from './useRequest';
+import { clearCache } from './utils/cache';
+
+export { clearCache };
+
+export default useRequest;

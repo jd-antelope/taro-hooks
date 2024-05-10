@@ -1,7 +1,15 @@
-import useCountDown from "./use-count-down";
 import useLatest from "./use-latest";
+import useUnmount from "./use-unmount";
+import useCreation from "./use-creation";
+import useMemoizedFn from "./use-memoized-fn";
+import useMount from "./use-mount";
+import useUpdate from "./use-update";
 
 export {
-  useCountDown,
-  useLatest
+  useLatest,
+  useUnmount,
+  useCreation,
+  useMemoizedFn,
+  useMount,
+  useUpdate
 }
