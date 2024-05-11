@@ -1,6 +1,6 @@
 import useRequest from './useRequest';
-import { clearCache } from './utils/cache';
+import { clearCache, setCache, getCache } from './utils/cache';
 
-export { clearCache };
+export { clearCache, setCache, getCache };
 
 export default useRequest;
