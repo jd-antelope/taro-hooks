@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jd-antelope/taro-hooks.git"
+    "url": "git@coding.jd.com:pre-warehouse/taro-hooks.git"
   },
   "author": "hawley",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jd-antelope/taro-hooks/issues"
+    "url": "http://xingyun.jd.com/codingRoot/pre-warehouse/taro-hooks/issues/"
   },
-  "homepage": "https://github.com/jd-antelope/taro-hooks#readme",
+  "homepage": "http://xingyun.jd.com/codingRoot/pre-warehouse/taro-hooks/blob/master/README.md",
   "dependencies": {
     "@qzc/taro-hooks": "workspace:^",
     "@qzc/use-request": "workspace:^"
