@@ -54,9 +54,9 @@ const { loading, run } = useRequest(getData, {
 
 ### Options
 
-| 参数          | 说明                           | 类型                                                 | 默认值  |
-| ------------- | ------------------------------ | ---------------------------------------------------- | ------- |
-| manual        | 默认 `false`。                      | `boolean`                                            | `false` |
+| 参数          | 说明                           | 类型                     | 默认值  |
+| ------------- | ------------------------------ | -------------------------- | ------- |
+| manual        | 初始化时自动执行 service          | `boolean`                         | `false` |
 | defaultParams | 首次默认执行时，传递给 service 的参数   |                   `TParams`                | -       |
 | onBefore      | service 执行前触发             | `(params: TParams) => void`                          | -       |
 | onSuccess     | service resolve 时触发         | `(data: TData, params: TParams) => void`             | -       |
