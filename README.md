@@ -14,12 +14,14 @@ pnpm add @qzc/use-request
 ```
 
 ## base taro-hooks
-+ useLatest,
-+ useUnmount,
-+ useCreation,
-+ useMemoizedFn,
-+ useMount,
-+ useUpdate
++ useLatest 返回当前最新值的 Hook
++ useUnmount 在组件卸载（unmount）时执行的 Hook
++ useCreation
++ useMemoizedFn 持久化 function 的 Hook，一般情况下，可以使用 useMemoizedFn 完全代替 useCallback
++ useMount 只在组件初始化时执行的 Hook
++ useUpdate 会返回一个函数，调用该函数会强制组件重新渲染
++ useUpdateEffect 用法等同于 useEffect，但是会忽略首次执行，只在依赖更新时执行
++ useVisible 当需要根据页面显隐进行判断
 
 ## use-request
 ```js
@@ -64,3 +66,5 @@ const { loading, run } = useRequest(getData, {
 | supportStorage | 是否支持Storage              ｜ `boolean` | `false` |
 | cacheKeyParams | 缓存标识参数 |  `any` | - |
 | cacheKeyDataNum | 缓存数量 | `number` | - |
+| pollingInterval | 轮询间隔，单位为毫秒。如果值大于 0，则启动轮询模式。 |  `number` | 0 |
+| pollingWhenHidden | 	在页面隐藏时，是否继续轮询。如果设置为 false，在页面隐藏时会暂时停止轮询，页面重新显示时继续上次轮询。 | `boolean` | `true` |

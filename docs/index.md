@@ -7,9 +7,6 @@ hero:
   text: "为 Taro 而设计的 Hooks Library"
   tagline: 
   actions:
-    - theme: brand
-      text: 快速开始
-      link: /guide/use-count-down
     - theme: alt
       text: hooks
       link: /guide/use-latest

@@ -16,6 +16,7 @@ interface RecordData extends CachedData {
 
 const cache = new Map<CachedKey, RecordData>();
 
+// 设置缓存
 const setCache = (params: any, isFilter: boolean = false) => {
   const {
     key,
@@ -65,6 +66,7 @@ const setCache = (params: any, isFilter: boolean = false) => {
   }
 };
 
+// 获取缓存
 const getCache = ({ 
   key,
   supportStorage, 
@@ -98,6 +100,7 @@ const getCache = ({
   return response[`${key}-${Object.values(cacheKeyParams).join('-')}`]
 };
 
+// 清除缓存
 const clearCache = (key?: string | string[]) => {
   if (key) {
     const cacheKeys = Array.isArray(key) ? key : [key];
@@ -108,6 +111,7 @@ const clearCache = (key?: string | string[]) => {
   }
 };
 
+// 过滤缓存数据
 const cacheFilterDataResponse: (_: any) => any = ({
   key, cachedData, fn = () => {}, cacheKeyParams, supportStorage, cacheKeyDataNum = 3
 }: {
@@ -136,8 +140,11 @@ const cacheFilterDataResponse: (_: any) => any = ({
       isCacheParams: true
     };
 
+    // 判断是否超过缓存数量，超过则删除最早的缓存
     if (Object.keys(cacheDataResponse).length >= cacheKeyDataNum + 3) {
-      const list = Object.keys(cacheDataResponse).filter(res => res !== 'isCacheParams' && res !== 'timer')
+      const list = Object.keys(cacheDataResponse).filter(
+        res => res !== 'isCacheParams' && res !== 'timer'
+      )
       list.sort((a, b) => {
         return cacheDataResponse[a].time - cacheDataResponse[b].time
       })
@@ -149,6 +156,7 @@ const cacheFilterDataResponse: (_: any) => any = ({
       }
     }
 
+    // 缓存数据
     cacheDataResponse[`${key}-${Object.values({
       ...(cacheKeyParams || {}),
     }).join('-')}`] = {

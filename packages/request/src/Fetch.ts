@@ -100,11 +100,18 @@ export default class Fetch<TData, TParams extends any[]> {
         return new Promise(() => {});
       }
 
-      this.setState({
-        data: res,
-        error: undefined,
-        loading: false,
-      });
+      if (this.options.filterErrorData?.(res)) {
+        this.setState({
+          error: new Error('Request failed with status code 200'),
+          loading: false,
+        });
+      } else {
+        this.setState({
+          data: res,
+          error: undefined,
+          loading: false,
+        });
+      }
 
       this.options.onSuccess?.(res, params);
       this.runPluginHandler('onSuccess', res, params);

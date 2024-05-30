@@ -68,6 +68,9 @@ importers:
 
   packages/core:
     dependencies:
+      '@tarojs/taro':
+        specifier: '>= 3.4.x'
+        version: 3.6.17
       react:
         specifier: ^16.8.0 || ^17.0.0 || ^18.0.0
         version: 18.2.0
@@ -82,7 +85,7 @@ importers:
         version: link:../core
       '@tarojs/taro':
         specifier: '>= 3.4.x'
-        version: 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
+        version: 3.6.17
       '@tarojs/taro-h5':
         specifier: '>= 3.4.x'
         version: 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
@@ -265,7 +268,7 @@ packages:
       '@babel/types': 7.23.0
 
   /@babel/runtime@7.23.2:
-    resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
+    resolution: {integrity: sha1-BisKwQMmHWipZsTHuvKuPmLsOIU=, tarball: http://registry.m.jd.com/@babel/runtime/download/@babel/runtime-7.23.2.tgz}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
@@ -535,7 +538,7 @@ packages:
     dev: true
 
   /@esbuild/android-arm64@0.18.20:
-    resolution: {integrity: sha512-Nz4rJcchGDtENV0eMKUNa6L12zz2zBDXuhj/Vjh18zGqB44Bi7MBMSXjgunJgjRhCmKOjnPuZp4Mb6OKqtMHLQ==}
+    resolution: {integrity: sha1-mEtPnI0Dd0Q8wt/O8mbQIkRZNiI=, tarball: http://registry.m.jd.com/@esbuild/android-arm64/download/@esbuild/android-arm64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
@@ -544,7 +547,7 @@ packages:
     optional: true
 
   /@esbuild/android-arm@0.18.20:
-    resolution: {integrity: sha512-fyi7TDI/ijKKNZTUJAQqiG5T7YjJXgnzkURqmGj13C6dCqckZBLdl4h7bkhHt/t0WP+zO9/zwroDvANaOqO5Sw==}
+    resolution: {integrity: sha1-/tsmW8OlichMwR+BCATyNJR8NoI=, tarball: http://registry.m.jd.com/@esbuild/android-arm/download/@esbuild/android-arm-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [android]
@@ -553,7 +556,7 @@ packages:
     optional: true
 
   /@esbuild/android-x64@0.18.20:
-    resolution: {integrity: sha512-8GDdlePJA8D6zlZYJV/jnrRAi6rOiNaCC/JclcXpB+KIuvfBN4owLtgzY2bsxnx666XjJx2kDPUmnTtR8qKQUg==}
+    resolution: {integrity: sha1-Nc9BnEz8i6voiT0pbNmQ6en3VvI=, tarball: http://registry.m.jd.com/@esbuild/android-x64/download/@esbuild/android-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
@@ -562,7 +565,7 @@ packages:
     optional: true
 
   /@esbuild/darwin-arm64@0.18.20:
-    resolution: {integrity: sha512-bxRHW5kHU38zS2lPTPOyuyTm+S+eobPUnTNkdJEfAddYgEcll4xkT8DB9d2008DtTbl7uJag2HuE5NZAZgnNEA==}
+    resolution: {integrity: sha1-CBcsvsz5X7w4M5mn85z73a6w18E=, tarball: http://registry.m.jd.com/@esbuild/darwin-arm64/download/@esbuild/darwin-arm64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
@@ -571,7 +574,7 @@ packages:
     optional: true
 
   /@esbuild/darwin-x64@0.18.20:
-    resolution: {integrity: sha512-pc5gxlMDxzm513qPGbCbDukOdsGtKhfxD1zJKXjCCcU7ju50O7MeAZ8c4krSJcOIJGFR+qx21yMMVYwiQvyTyQ==}
+    resolution: {integrity: sha1-1w1XkNi/R1VWtn0Pi3xb3/BT2F0=, tarball: http://registry.m.jd.com/@esbuild/darwin-x64/download/@esbuild/darwin-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
@@ -580,7 +583,7 @@ packages:
     optional: true
 
   /@esbuild/freebsd-arm64@0.18.20:
-    resolution: {integrity: sha512-yqDQHy4QHevpMAaxhhIwYPMv1NECwOvIpGCZkECn8w2WFHXjEwrBn3CeNIYsibZ/iZEUemj++M26W3cNR5h+Tw==}
+    resolution: {integrity: sha1-mHVc0ScH+T8hDiSU1qS1G5aXf1Q=, tarball: http://registry.m.jd.com/@esbuild/freebsd-arm64/download/@esbuild/freebsd-arm64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
@@ -589,7 +592,7 @@ packages:
     optional: true
 
   /@esbuild/freebsd-x64@0.18.20:
-    resolution: {integrity: sha512-tgWRPPuQsd3RmBZwarGVHZQvtzfEBOreNuxEMKFcd5DaDn2PbBxfwLcj4+aenoh7ctXcbXmOQIn8HI6mCSw5MQ==}
+    resolution: {integrity: sha1-wesr/wORX4fCnOzkwaf6H0I7Bm4=, tarball: http://registry.m.jd.com/@esbuild/freebsd-x64/download/@esbuild/freebsd-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
@@ -598,7 +601,7 @@ packages:
     optional: true
 
   /@esbuild/linux-arm64@0.18.20:
-    resolution: {integrity: sha512-2YbscF+UL7SQAVIpnWvYwM+3LskyDmPhe31pE7/aoTMFKKzIc9lLbyGUpmmb8a8AixOL61sQ/mFh3jEjHYFvdA==}
+    resolution: {integrity: sha1-utQji9j0/CW1oCEoDHcKtfw6AqA=, tarball: http://registry.m.jd.com/@esbuild/linux-arm64/download/@esbuild/linux-arm64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
@@ -607,7 +610,7 @@ packages:
     optional: true
 
   /@esbuild/linux-arm@0.18.20:
-    resolution: {integrity: sha512-/5bHkMWnq1EgKr1V+Ybz3s1hWXok7mDFUMQ4cG10AfW3wL02PSZi5kFpYKrptDsgb2WAJIvRcDm+qIvXf/apvg==}
+    resolution: {integrity: sha1-PmF8YfM1CKJxUO5BdUPIq1rMc7A=, tarball: http://registry.m.jd.com/@esbuild/linux-arm/download/@esbuild/linux-arm-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
@@ -616,7 +619,7 @@ packages:
     optional: true
 
   /@esbuild/linux-ia32@0.18.20:
-    resolution: {integrity: sha512-P4etWwq6IsReT0E1KHU40bOnzMHoH73aXp96Fs8TIT6z9Hu8G6+0SHSw9i2isWrD2nbx2qo5yUqACgdfVGx7TA==}
+    resolution: {integrity: sha1-aZORzMupruYBm3+YkuuZIZ8VcKc=, tarball: http://registry.m.jd.com/@esbuild/linux-ia32/download/@esbuild/linux-ia32-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
@@ -625,7 +628,7 @@ packages:
     optional: true
 
   /@esbuild/linux-loong64@0.18.20:
-    resolution: {integrity: sha512-nXW8nqBTrOpDLPgPY9uV+/1DjxoQ7DoB2N8eocyq8I9XuqJ7BiAMDMf9n1xZM9TgW0J8zrquIb/A7s3BJv7rjg==}
+    resolution: {integrity: sha1-5vzLeqwXjdL/uYYEZayJ1/I7l30=, tarball: http://registry.m.jd.com/@esbuild/linux-loong64/download/@esbuild/linux-loong64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
@@ -634,7 +637,7 @@ packages:
     optional: true
 
   /@esbuild/linux-mips64el@0.18.20:
-    resolution: {integrity: sha512-d5NeaXZcHp8PzYy5VnXV3VSd2D328Zb+9dEq5HE6bw6+N86JVPExrA6O68OPwobntbNJ0pzCpUFZTo3w0GyetQ==}
+    resolution: {integrity: sha1-7v86k33pwjEN4wYiqVetG9kYMjE=, tarball: http://registry.m.jd.com/@esbuild/linux-mips64el/download/@esbuild/linux-mips64el-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
@@ -643,7 +646,7 @@ packages:
     optional: true
 
   /@esbuild/linux-ppc64@0.18.20:
-    resolution: {integrity: sha512-WHPyeScRNcmANnLQkq6AfyXRFr5D6N2sKgkFo2FqguP44Nw2eyDlbTdZwd9GYk98DZG9QItIiTlFLHJHjxP3FA==}
+    resolution: {integrity: sha1-L3FWveILAVJ5k+aIFDWtebqVmfs=, tarball: http://registry.m.jd.com/@esbuild/linux-ppc64/download/@esbuild/linux-ppc64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
@@ -652,7 +655,7 @@ packages:
     optional: true
 
   /@esbuild/linux-riscv64@0.18.20:
-    resolution: {integrity: sha512-WSxo6h5ecI5XH34KC7w5veNnKkju3zBRLEQNY7mv5mtBmrP/MjNBCAlsM2u5hDBlS3NGcTQpoBvRzqBcRtpq1A==}
+    resolution: {integrity: sha1-Zig4nyEBI9i0dDBFr4yqfU3fx6Y=, tarball: http://registry.m.jd.com/@esbuild/linux-riscv64/download/@esbuild/linux-riscv64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
@@ -661,7 +664,7 @@ packages:
     optional: true
 
   /@esbuild/linux-s390x@0.18.20:
-    resolution: {integrity: sha512-+8231GMs3mAEth6Ja1iK0a1sQ3ohfcpzpRLH8uuc5/KVDFneH6jtAJLFGafpzpMRO6DzJ6AvXKze9LfFMrIHVQ==}
+    resolution: {integrity: sha1-JV6B+yibEBAmExhYq5n7pj3PAHE=, tarball: http://registry.m.jd.com/@esbuild/linux-s390x/download/@esbuild/linux-s390x-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
@@ -670,7 +673,7 @@ packages:
     optional: true
 
   /@esbuild/linux-x64@0.18.20:
-    resolution: {integrity: sha512-UYqiqemphJcNsFEskc73jQ7B9jgwjWrSayxawS6UVFZGWrAAtkzjxSqnoclCXxWtfwLdzU+vTpcNYhpn43uP1w==}
+    resolution: {integrity: sha1-x2kLNBevMYqbb5bfMDGohlF20zg=, tarball: http://registry.m.jd.com/@esbuild/linux-x64/download/@esbuild/linux-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
@@ -679,7 +682,7 @@ packages:
     optional: true
 
   /@esbuild/netbsd-x64@0.18.20:
-    resolution: {integrity: sha512-iO1c++VP6xUBUmltHZoMtCUdPlnPGdBom6IrO4gyKPFFVBKioIImVooR5I83nTew5UOYrk3gIJhbZh8X44y06A==}
+    resolution: {integrity: sha1-MOjNij3e1jl14t8kOMoQlgHr4NE=, tarball: http://registry.m.jd.com/@esbuild/netbsd-x64/download/@esbuild/netbsd-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
@@ -688,7 +691,7 @@ packages:
     optional: true
 
   /@esbuild/openbsd-x64@0.18.20:
-    resolution: {integrity: sha512-e5e4YSsuQfX4cxcygw/UCPIEP6wbIL+se3sxPdCiMbFLBWu0eiZOJ7WoD+ptCLrmjZBK1Wk7I6D/I3NglUGOxg==}
+    resolution: {integrity: sha1-eBKvMbIFBVh0yAguqc+asNpiF64=, tarball: http://registry.m.jd.com/@esbuild/openbsd-x64/download/@esbuild/openbsd-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
@@ -697,7 +700,7 @@ packages:
     optional: true
 
   /@esbuild/sunos-x64@0.18.20:
-    resolution: {integrity: sha512-kDbFRFp0YpTQVVrqUd5FTYmWo45zGaXe0X8E1G/LKFC0v8x0vWrhOWSLITcCn63lmZIxfOMXtCfti/RxN/0wnQ==}
+    resolution: {integrity: sha1-1cJ1w7TnPJsOzTjRymLAIPiHq50=, tarball: http://registry.m.jd.com/@esbuild/sunos-x64/download/@esbuild/sunos-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
@@ -706,7 +709,7 @@ packages:
     optional: true
 
   /@esbuild/win32-arm64@0.18.20:
-    resolution: {integrity: sha512-ddYFR6ItYgoaq4v4JmQQaAI5s7npztfV4Ag6NrhiaW0RrnOXqBkgwZLofVTlq1daVTQNhtI5oieTvkRPfZrePg==}
+    resolution: {integrity: sha1-c7x/Wp+Kd4BfNX+rl/KQ0OSCCsk=, tarball: http://registry.m.jd.com/@esbuild/win32-arm64/download/@esbuild/win32-arm64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
@@ -715,7 +718,7 @@ packages:
     optional: true
 
   /@esbuild/win32-ia32@0.18.20:
-    resolution: {integrity: sha512-Wv7QBi3ID/rROT08SABTS7eV4hX26sVduqDOTe1MvGMjNd3EjOz4b7zeexIR62GTIEKrfJXKL9LFxTYgkyeu7g==}
+    resolution: {integrity: sha1-7JPL8O8QhcwS5x4NZh0gVp/0IQI=, tarball: http://registry.m.jd.com/@esbuild/win32-ia32/download/@esbuild/win32-ia32-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
@@ -724,7 +727,7 @@ packages:
     optional: true
 
   /@esbuild/win32-x64@0.18.20:
-    resolution: {integrity: sha512-kTdfRcSiDfQca/y9QIkng02avJ+NCaQvrMejlsB3RRv5sE9rRoeBPISaZpKxHELzRxZyLvNts1P27W3wV+8geQ==}
+    resolution: {integrity: sha1-eGxfQfBDsHr7GvN2g9fDNmiFj20=, tarball: http://registry.m.jd.com/@esbuild/win32-x64/download/@esbuild/win32-x64-0.18.20.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
@@ -816,7 +819,7 @@ packages:
     dev: false
 
   /@tarojs/api@3.6.17:
-    resolution: {integrity: sha512-16IDRN0uoBuUhFt5LqrzNKc9ZrzxSplsMN0tuYiIenlqAxsNaPvAVz+93TIWDg14uabGN5JeWKMJs+Ng51rxQw==}
+    resolution: {integrity: sha1-Tw1ziyqgqaNtWPp4N+GxmvhKek8=, tarball: http://registry.m.jd.com/@tarojs/api/download/@tarojs/api-3.6.17.tgz}
     dependencies:
       '@babel/runtime': 7.23.2
       '@tarojs/runtime': 3.6.17
@@ -834,10 +837,10 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@tarojs/components': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(react@18.2.0)(vue@3.3.4)
+      '@tarojs/components': 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
       '@tarojs/runtime': 3.6.17
       '@tarojs/shared': 3.6.17
-      '@tarojs/taro': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
+      '@tarojs/taro': 3.6.17
       classnames: 2.3.2
       csstype: 3.1.2
       memoize-one: 6.0.0
@@ -847,11 +850,9 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-native'
-      - '@types/webpack'
-      - '@types/webpack-dev-server'
     dev: false
 
-  /@tarojs/components@3.6.17(@types/react@18.2.28)(postcss@8.4.31)(react@18.2.0)(vue@3.3.4):
+  /@tarojs/components@3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4):
     resolution: {integrity: sha512-VlqPIiFJR8yXizY1sknT/EzrQqyZlsS5mjPNV/sFkBoUMkl4Sa1qQ0ExiweywQ/U7dpU5p4cSl5Zb1q9H6FpwQ==}
     peerDependencies:
       '@types/react': '*'
@@ -867,8 +868,8 @@ packages:
     dependencies:
       '@stencil/core': 2.22.3
       '@tarojs/components-advanced': 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
-      '@tarojs/router': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
-      '@tarojs/taro': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
+      '@tarojs/router': 3.6.17
+      '@tarojs/taro': 3.6.17
       '@types/react': 18.2.28
       classnames: 2.3.2
       hls.js: 1.4.12
@@ -878,32 +879,23 @@ packages:
       vue: 3.3.4
       weui: 1.1.3
     transitivePeerDependencies:
-      - '@types/webpack'
-      - '@types/webpack-dev-server'
-      - postcss
       - react
     dev: false
 
-  /@tarojs/router@3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4):
+  /@tarojs/router@3.6.17:
     resolution: {integrity: sha512-2H/A5SDyGx7Bsa17obHiDAevwwhsbKCHp+0+vNY/VHhZTRRvd2MAmizEJQZWZDcUkz2XACFV00yHiQRZX4tetA==}
     dependencies:
       '@tarojs/runtime': 3.6.17
-      '@tarojs/taro': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
+      '@tarojs/taro': 3.6.17
       dingtalk-jsapi: 2.15.4
       history: 5.3.0
       mobile-detect: 1.4.5
       query-string: 7.1.3
       universal-router: 8.3.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/webpack'
-      - '@types/webpack-dev-server'
-      - postcss
-      - vue
     dev: false
 
   /@tarojs/runtime@3.6.17:
-    resolution: {integrity: sha512-d8x53AcVkV5EWNKiDGF/71CRgLly76rHJVNatZdewW3+rm/iB0amIUusE++9tzcu4ONgP70cDBC8l1lvVOokAg==}
+    resolution: {integrity: sha1-8PXG+vxQCL6wCFhle4Z1MM2ONnk=, tarball: http://registry.m.jd.com/@tarojs/runtime/download/@tarojs/runtime-3.6.17.tgz}
     dependencies:
       '@tarojs/shared': 3.6.17
       lodash-es: 4.17.21
@@ -917,8 +909,8 @@ packages:
     resolution: {integrity: sha512-om7UWwY34uNfxOgOorQDXUMK9p2Qq4LPgzuY1plWoLYvI0UlFgKkRf4tuU3FnWK7If3Mqf3YgOTgpyD9aMa1cA==}
     dependencies:
       '@tarojs/api': 3.6.17
-      '@tarojs/components': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(react@18.2.0)(vue@3.3.4)
-      '@tarojs/router': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
+      '@tarojs/components': 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
+      '@tarojs/router': 3.6.17
       '@tarojs/runtime': 3.6.17
       '@tarojs/shared': 3.6.17
       abortcontroller-polyfill: 1.7.5
@@ -932,38 +924,15 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-native'
-      - '@types/webpack'
-      - '@types/webpack-dev-server'
-      - postcss
       - react
       - vue
     dev: false
 
-  /@tarojs/taro@3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4):
-    resolution: {integrity: sha512-qcKal6SsFguG3hb/8I4cn5qT60wyqmcohv48ZDg6GFnRSJbmidxcVfyWyGIZgQdJW2QBlyivQNp9w1K9n31I8g==}
-    peerDependencies:
-      '@types/react': '*'
-      '@types/webpack': '*'
-      '@types/webpack-dev-server': '*'
-      postcss: '*'
-      vue: '*'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/webpack':
-        optional: true
-      '@types/webpack-dev-server':
-        optional: true
-      postcss:
-        optional: true
-      vue:
-        optional: true
+  /@tarojs/taro@3.6.17:
+    resolution: {integrity: sha1-C82Sp2r8R5C3bspcLE0/fEL/uHE=, tarball: http://registry.m.jd.com/@tarojs/taro/download/@tarojs/taro-3.6.17.tgz}
     dependencies:
       '@tarojs/api': 3.6.17
       '@tarojs/runtime': 3.6.17
-      '@types/react': 18.2.28
-      postcss: 8.4.31
-      vue: 3.3.4
     dev: false
 
   /@tsconfig/node10@1.0.9:
@@ -1917,7 +1886,7 @@ packages:
     dev: true
 
   /fsevents@2.3.3:
-    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
+    resolution: {integrity: sha1-ysZAd4XQNnWipeGlMFxpezR9kNY=, tarball: http://registry.m.jd.com/fsevents/download/fsevents-2.3.3.tgz}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -2405,7 +2374,7 @@ packages:
     dev: true
 
   /lodash-es@4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    resolution: {integrity: sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=, tarball: http://registry.m.jd.com/lodash-es/download/lodash-es-4.17.21.tgz}
     dev: false
 
   /lodash.sortby@4.7.0:
@@ -2885,7 +2854,7 @@ packages:
     dev: true
 
   /regenerator-runtime@0.14.0:
-    resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
+    resolution: {integrity: sha1-XhnWjrEtSG95fhWjxqkY987F60U=, tarball: http://registry.m.jd.com/regenerator-runtime/download/regenerator-runtime-0.14.0.tgz}
 
   /regexp.prototype.flags@1.5.1:
     resolution: {integrity: sha512-sy6TXMN+hnP/wMy+ISxg3krXx7BAtWVO4UouuCN/ziM9UEne0euamVNafDfvC83bRNr95y0V5iijeDQFUNpvrg==}
@@ -2971,7 +2940,7 @@ packages:
     dev: true
 
   /search-insights@2.13.0:
-    resolution: {integrity: sha512-Orrsjf9trHHxFRuo9/rzm0KIWmgzE8RMlZMzuhZOJ01Rnz3D0YBAe+V6473t6/H6c7irs6Lt48brULAiRWb3Vw==}
+    resolution: {integrity: sha1-p5/c9LXa0vuol1sG8uvDeoZQMrc=, tarball: http://registry.m.jd.com/search-insights/download/search-insights-2.13.0.tgz}
     dev: true
 
   /semver@5.7.2:

@@ -55,6 +55,8 @@ export interface Options<TData, TParams extends any[]> {
   // formatResult?: (res: any) => TData;
   onFinally?: (params: TParams, data?: TData, e?: Error) => void;
 
+  filterErrorData?: (res: any) => any;
+
   defaultParams?: TParams;
 
   // refreshDeps
@@ -113,13 +115,6 @@ export type Plugin<TData, TParams extends any[]> = {
     options: Options<TData, TParams>,
   ) => Partial<FetchState<TData, TParams>>;
 };
-
-// for index
-// export type OptionsWithoutFormat<TData, TParams extends any[]> = Omit<Options<TData, TParams>, 'formatResult'>;
-
-// export interface OptionsWithFormat<TData, TParams extends any[], TFormated, TTFormated extends TFormated = any> extends Omit<Options<TTFormated, TParams>, 'formatResult'> {
-//   formatResult: (res: TData) => TFormated;
-// };
 
 export interface Result<TData, TParams extends any[]> {
   loading: boolean;

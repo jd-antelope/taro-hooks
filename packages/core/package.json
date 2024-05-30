@@ -1,6 +1,6 @@
 {
   "name": "@qzc/taro-hooks",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.5",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -15,7 +15,8 @@
   "author": "",
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "typescript": ">=5.0.4"
+    "typescript": ">=5.0.4",
+    "@tarojs/taro": ">= 3.4.x"
   },
   "peerDependenciesMeta": {
     "typescript": {

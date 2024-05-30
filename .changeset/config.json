@@ -7,7 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [
-    "@qzc/taro-hooks-docs"
-  ]
+  "ignore": []
 }
