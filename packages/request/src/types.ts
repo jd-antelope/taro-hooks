@@ -1,5 +1,5 @@
-import type Fetch from './Fetch';
-import type { CachedData } from './utils/cache';
+import type Fetch from "./Fetch";
+import type { CachedData } from "./utils/cache";
 
 export type DependencyList = ReadonlyArray<any>;
 
@@ -19,7 +19,7 @@ export interface FetchState<TData, TParams extends any[]> {
   params?: TParams;
   data?: TData;
   error?: Error;
-  cacheKeyParams: any
+  cacheKeyParams: any;
 }
 
 export interface PluginReturn<TData, TParams extends any[]> {
@@ -32,7 +32,7 @@ export interface PluginReturn<TData, TParams extends any[]> {
 
   onRequest?: (
     service: Service<TData, TParams>,
-    params: TParams,
+    params: TParams
   ) => {
     servicePromise?: Promise<TData>;
   };
@@ -48,7 +48,7 @@ export interface PluginReturn<TData, TParams extends any[]> {
 
 export interface Options<TData, TParams extends any[]> {
   manual?: boolean;
-
+  onInit?: (params?: TParams) => void;
   onBefore?: (params: TParams) => void;
   onSuccess?: (data: TData, params: TParams) => void;
   onError?: (e: Error, params: TParams) => void;
@@ -56,7 +56,7 @@ export interface Options<TData, TParams extends any[]> {
   onFinally?: (params: TParams, data?: TData, e?: Error) => void;
 
   filterErrorData?: (res: any) => any;
-
+  sliceRender?: (res: any, fetchInstance: Fetch<TData, TParams>) => any;
   defaultParams?: TParams;
 
   // refreshDeps
@@ -109,10 +109,10 @@ export interface Options<TData, TParams extends any[]> {
 export type Plugin<TData, TParams extends any[]> = {
   (
     fetchInstance: Fetch<TData, TParams>,
-    options: Options<TData, TParams>,
+    options: Options<TData, TParams>
   ): PluginReturn<TData, TParams>;
   onInit?: (
-    options: Options<TData, TParams>,
+    options: Options<TData, TParams>
   ) => Partial<FetchState<TData, TParams>>;
 };
 
@@ -121,12 +121,12 @@ export interface Result<TData, TParams extends any[]> {
   data?: TData;
   error?: Error;
   params: TParams | [];
-  cancel: Fetch<TData, TParams>['cancel'];
-  refresh: Fetch<TData, TParams>['refresh'];
-  refreshAsync: Fetch<TData, TParams>['refreshAsync'];
-  run: (params: any) => void //Fetch<TData, TParams>['run'];
-  runAsync: Fetch<TData, TParams>['runAsync'];
-  mutate: Fetch<TData, TParams>['mutate'];
+  cancel: Fetch<TData, TParams>["cancel"];
+  refresh: Fetch<TData, TParams>["refresh"];
+  refreshAsync: Fetch<TData, TParams>["refreshAsync"];
+  run: (params: any) => void; //Fetch<TData, TParams>['run'];
+  runAsync: Fetch<TData, TParams>["runAsync"];
+  mutate: Fetch<TData, TParams>["mutate"];
 }
 
 export type Timeout = ReturnType<typeof setTimeout>;

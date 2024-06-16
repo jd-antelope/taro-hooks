@@ -1,22 +1,22 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 import {
   useLatest,
   useMount,
   useUnmount,
   useUpdate,
   useMemoizedFn,
-} from '@qzc/taro-hooks';
-import Fetch from './Fetch';
-import type { Options, Plugin, Result, Service } from './types';
+} from "@qzc/taro-hooks";
+import Fetch from "./Fetch";
+import type { Options, Plugin, Result, Service } from "./types";
 
 function useRequestImplement<TData, TParams extends any[]>(
   service: Service<TData, TParams>,
   options: Options<TData, TParams> = {},
-  plugins: Plugin<TData, TParams>[] = [],
+  plugins: Plugin<TData, TParams>[] = []
 ) {
   const { manual = false, ...rest } = options;
 
-  const fetchOptions = {
+  const fetchOptions: any = {
     manual,
     ...rest,
   };
@@ -35,7 +35,7 @@ function useRequestImplement<TData, TParams extends any[]>(
       serviceRef,
       fetchOptions,
       update,
-      Object.assign({}, ...initState),
+      Object.assign({}, ...initState)
     );
 
     return fetch;
@@ -44,9 +44,9 @@ function useRequestImplement<TData, TParams extends any[]>(
   // react can not call hooks in other hooks. we use env to fix it
   fetchInstance.options = fetchOptions;
   // run all plugins hooks
-  fetchInstance.pluginImpls = plugins.map((p) =>
-    p(fetchInstance, fetchOptions),
-  );
+  fetchInstance.pluginImpls = plugins
+    .filter((p) => typeof p === "function")
+    .map((p) => p?.(fetchInstance, fetchOptions));
 
   useMount(() => {
     if (!manual) {

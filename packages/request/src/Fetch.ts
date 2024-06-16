@@ -4,8 +4,8 @@ import type {
   PluginReturn,
   Service,
   Subscribe,
-  MutableRefObject
-} from './types';
+  MutableRefObject,
+} from "./types";
 
 export default class Fetch<TData, TParams extends any[]> {
   pluginImpls: PluginReturn<TData, TParams>[] | undefined;
@@ -24,7 +24,7 @@ export default class Fetch<TData, TParams extends any[]> {
     public serviceRef: MutableRefObject<Service<TData, TParams>>,
     public options: Options<TData, TParams>,
     public subscribe: Subscribe,
-    public initState: Partial<FetchState<TData, TParams>> = {},
+    public initState: Partial<FetchState<TData, TParams>> = {}
   ) {
     this.state = {
       ...this.state,
@@ -50,24 +50,23 @@ export default class Fetch<TData, TParams extends any[]> {
   async runAsync(...params: any): Promise<TData> {
     if (params?.[0]?.cacheKeyParams) {
       this.setState({
-        cacheKeyParams: params[0].cacheKeyParams
-      })
+        cacheKeyParams: params[0].cacheKeyParams,
+      });
     }
 
     this.count += 1;
     const currentCount = this.count;
-
     const {
       stopNow = false,
       returnNow = false,
       ...state
-    } = this.runPluginHandler('onBefore', params);
+    } = this.runPluginHandler("onBefore", params);
 
     // stop request
     if (stopNow) {
       return new Promise(() => {});
     }
-    
+
     this.setState({
       loading: true,
       params,
@@ -84,9 +83,9 @@ export default class Fetch<TData, TParams extends any[]> {
     try {
       // replace service
       let { servicePromise } = this.runPluginHandler(
-        'onRequest',
+        "onRequest",
         this.serviceRef.current,
-        params,
+        params
       );
 
       if (!servicePromise) {
@@ -102,24 +101,32 @@ export default class Fetch<TData, TParams extends any[]> {
 
       if (this.options.filterErrorData?.(res)) {
         this.setState({
-          error: new Error('Request failed with status code 200'),
+          error: new Error("Request failed with status code 200"),
           loading: false,
         });
       } else {
-        this.setState({
-          data: res,
-          error: undefined,
-          loading: false,
-        });
+        // 是否启动切片
+        if (
+          this.options.sliceRender &&
+          typeof this.options.sliceRender === "function"
+        ) {
+          this.options.sliceRender(res, this);
+        } else {
+          this.setState({
+            data: res,
+            error: undefined,
+            loading: false,
+          });
+        }
       }
 
       this.options.onSuccess?.(res, params);
-      this.runPluginHandler('onSuccess', res, params);
+      this.runPluginHandler("onSuccess", res, params);
 
       this.options.onFinally?.(params, res, undefined);
 
       if (currentCount === this.count) {
-        this.runPluginHandler('onFinally', params, res, undefined);
+        this.runPluginHandler("onFinally", params, res, undefined);
       }
 
       return res;
@@ -135,12 +142,12 @@ export default class Fetch<TData, TParams extends any[]> {
       });
 
       this.options.onError?.(error as Error, params);
-      this.runPluginHandler('onError', error as Error, params);
+      this.runPluginHandler("onError", error as Error, params);
 
       this.options.onFinally?.(params, undefined, error as Error);
 
       if (currentCount === this.count) {
-        this.runPluginHandler('onFinally', params, undefined, error);
+        this.runPluginHandler("onFinally", params, undefined, error);
       }
 
       throw error;
@@ -161,7 +168,7 @@ export default class Fetch<TData, TParams extends any[]> {
       loading: false,
     });
 
-    this.runPluginHandler('onCancel');
+    this.runPluginHandler("onCancel");
   }
 
   refresh() {
@@ -175,9 +182,10 @@ export default class Fetch<TData, TParams extends any[]> {
   }
 
   mutate(data?: TData | ((oldData?: TData) => TData | undefined)) {
-    const targetData: TData | undefined = data instanceof Function ? data(this.state.data) : data;
+    const targetData: TData | undefined =
+      data instanceof Function ? data(this.state.data) : data;
 
-    this.runPluginHandler('onMutate', targetData);
+    this.runPluginHandler("onMutate", targetData);
 
     this.setState({
       data: targetData,
