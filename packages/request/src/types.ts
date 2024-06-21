@@ -95,6 +95,7 @@ export interface Options<TData, TParams extends any[]> {
   supportStorage?: boolean;
   cacheKeyParams?: any;
   cacheKeyDataNum?: number;
+  cacheVersion?: string;
 
   // retry
   retryCount?: number;

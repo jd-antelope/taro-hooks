@@ -23,6 +23,7 @@ const setCache = (params: any, isFilter: boolean = false) => {
     cacheTime,
     cachedData,
     supportStorage,
+    cacheVersion
   } = params;
   let cachedDataResponse = isFilter ? cacheFilterDataResponse(params) : cachedData;
   // const currentCache = cache.get(key);
@@ -42,16 +43,24 @@ const setCache = (params: any, isFilter: boolean = false) => {
   //   }, cacheTime);
   // }
 
-  cache.set(key, {
-    ...cachedDataResponse,
-    cacheTime,
-    preTimer: new Date().getTime()
-  });
+  if (!supportStorage) {
+    cache.set(key, {
+      ...cachedDataResponse,
+      cacheTime,
+      cacheVersion,
+      preTimer: new Date().getTime(),
+    });
+  }
 
   try {
     supportStorage && setStorage({
       key: String(key),
-      data: cachedDataResponse,
+      data: {
+        ...cachedDataResponse,
+        cacheTime,
+        cacheVersion,
+        preTimer: new Date().getTime(),
+      },
       fail: () => {
         removeStorage({
           key: String(key)
@@ -70,17 +79,21 @@ const setCache = (params: any, isFilter: boolean = false) => {
 const getCache = ({ 
   key,
   supportStorage, 
+  cacheVersion,
   cacheKeyParams
 }: {
   key: CachedKey;
+  cacheVersion?: string;
   supportStorage?: boolean;
   cacheKeyParams?: any; // Add cacheKeyParams property to the type definition
 }) => {
-  const response = cache.get(String(key)) || (supportStorage ? getStorageSync(String(key)) : null) as any;
+  const response = supportStorage ? getStorageSync(String(key)) : cache.get(String(key)) as any;
 
   if (response.cacheTime && response.preTimer) {
     const currentTime = new Date().getTime();
-    if (currentTime - response.cacheTime > response.preTimer) {
+    if (
+      (currentTime - response.cacheTime > response.preTimer) || 
+      (cacheVersion && response.cacheVersion && cacheVersion !== response.cacheVersion)) {
       cache.delete(key);
       supportStorage && removeStorage({
         key: String(key)
@@ -141,7 +154,7 @@ const cacheFilterDataResponse: (_: any) => any = ({
     };
 
     // 判断是否超过缓存数量，超过则删除最早的缓存
-    if (Object.keys(cacheDataResponse).length >= cacheKeyDataNum + 3) {
+    if (Object.keys(cacheDataResponse).length >= cacheKeyDataNum + 4) {
       const list = Object.keys(cacheDataResponse).filter(
         res => res !== 'isCacheParams' && res !== 'timer'
       )
@@ -157,12 +170,20 @@ const cacheFilterDataResponse: (_: any) => any = ({
     }
 
     // 缓存数据
-    cacheDataResponse[`${key}-${Object.values({
-      ...(cacheKeyParams || {}),
-    }).join('-')}`] = {
-      ...cacheDataCopy,
-      time: new Date().getTime()
-    };
+    if (cacheKeyParams) {
+      cacheDataResponse[`${key}-${Object.values({
+        ...(cacheKeyParams || {}),
+      }).join('-')}`] = {
+        ...cacheDataCopy,
+        time: new Date().getTime()
+      };
+    } else {
+      cacheDataResponse[key] = {
+        ...cacheDataCopy,
+        time: new Date().getTime()
+      };
+    }
+    
   } else {
     cacheDataResponse = cacheDataCopy;
   }

@@ -17,7 +17,8 @@ const useCachePlugin: Plugin<any, any[]> = (
     getCache: customGetCache,
     supportStorage = false,
     cacheKeyParams,
-    cacheKeyDataNum = 3
+    cacheKeyDataNum = 3,
+    cacheVersion = '',
   },
 ) => {
   const unSubscribeRef = useRef<() => void>();
@@ -45,6 +46,7 @@ const useCachePlugin: Plugin<any, any[]> = (
         cacheTime, 
         cachedData: cacheDataResponse,
         supportStorage,
+        cacheVersion
       });
     }
     cacheSubscribe.trigger(key, cacheDataCopy.data);
@@ -57,6 +59,7 @@ const useCachePlugin: Plugin<any, any[]> = (
     return cache.getCache({
       key,
       supportStorage,
+      cacheVersion,
       cacheKeyParams: {
         ...(cacheKeyParams || {}),
         ...(fetchInstance.state.cacheKeyParams || {})
