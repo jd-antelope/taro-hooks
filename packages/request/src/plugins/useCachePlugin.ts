@@ -19,6 +19,7 @@ const useCachePlugin: Plugin<any, any[]> = (
     cacheKeyParams,
     cacheKeyDataNum = 3,
     cacheVersion = '',
+    onlySetCache = false,
   },
 ) => {
   const unSubscribeRef = useRef<() => void>();
@@ -103,7 +104,7 @@ const useCachePlugin: Plugin<any, any[]> = (
     onBefore: (params) => {
       const cacheData = _getCache(cacheKey, params);
 
-      if (!cacheData || !Object.hasOwnProperty.call(cacheData, 'data')) {
+      if (!cacheData || !Object.hasOwnProperty.call(cacheData, 'data') || onlySetCache) {
         return {};
       }
 
@@ -114,13 +115,19 @@ const useCachePlugin: Plugin<any, any[]> = (
       ) {
         return {
           loading: false,
-          data: cacheData?.data,
+          data: cacheData ? {
+              ...cacheData?.data,
+              isCache: true
+            } : undefined,
           returnNow: true,
         };
       } else {
         // If the data is stale, return data, and request continue
         return {
-          data: cacheData?.data,
+          data: cacheData ? {
+            ...cacheData?.data,
+            isCache: true
+          } : undefined,
         };
       }
     },
