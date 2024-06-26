@@ -1,10 +1,10 @@
-import { useRef } from 'react';
-import { useCreation, useUnmount } from '@qzc/taro-hooks';
-import type { Plugin } from '../types';
-import * as cache from '../utils/cache';
-import type { CachedData } from '../utils/cache';
-import * as cachePromise from '../utils/cachePromise';
-import * as cacheSubscribe from '../utils/cacheSubscribe';
+import { useRef } from "react";
+import { useCreation, useUnmount } from "@qzc/taro-hooks";
+import type { Plugin } from "../types";
+import * as cache from "../utils/cache";
+import type { CachedData } from "../utils/cache";
+import * as cachePromise from "../utils/cachePromise";
+import * as cacheSubscribe from "../utils/cacheSubscribe";
 
 const useCachePlugin: Plugin<any, any[]> = (
   fetchInstance,
@@ -18,9 +18,11 @@ const useCachePlugin: Plugin<any, any[]> = (
     supportStorage = false,
     cacheKeyParams,
     cacheKeyDataNum = 3,
-    cacheVersion = '',
+    cacheVersion = "",
     onlySetCache = false,
-  },
+    onGetCacheBefore,
+    onGetCacheAfter,
+  }
 ) => {
   const unSubscribeRef = useRef<() => void>();
 
@@ -33,27 +35,27 @@ const useCachePlugin: Plugin<any, any[]> = (
       fn: cacheFilterData,
       cacheKeyParams: {
         ...(cacheKeyParams || {}),
-        ...(fetchInstance.state.cacheKeyParams || {})
+        ...(fetchInstance.state.cacheKeyParams || {}),
       },
       supportStorage,
-      cacheKeyDataNum
+      cacheKeyDataNum,
     });
 
     if (customSetCache) {
       customSetCache(cacheDataResponse);
     } else {
       cache.setCache({
-        key, 
-        cacheTime, 
+        key,
+        cacheTime,
         cachedData: cacheDataResponse,
         supportStorage,
-        cacheVersion
+        cacheVersion,
       });
     }
     cacheSubscribe.trigger(key, cacheDataCopy.data);
   };
 
-  const _getCache = (key: string, params: any[] = []) => {
+  const _getCache = (key: string, params: any[] = [], isReal?: boolean) => {
     if (customGetCache) {
       return customGetCache(params);
     }
@@ -61,10 +63,13 @@ const useCachePlugin: Plugin<any, any[]> = (
       key,
       supportStorage,
       cacheVersion,
+      onGetCacheBefore,
+      onGetCacheAfter,
+      isReal,
       cacheKeyParams: {
         ...(cacheKeyParams || {}),
-        ...(fetchInstance.state.cacheKeyParams || {})
-      }
+        ...(fetchInstance.state.cacheKeyParams || {}),
+      },
     });
   };
 
@@ -75,7 +80,7 @@ const useCachePlugin: Plugin<any, any[]> = (
 
     // get data from cache when init
     const cacheData = _getCache(cacheKey);
-    if (cacheData && Object.hasOwnProperty.call(cacheData, 'data')) {
+    if (cacheData && Object.hasOwnProperty.call(cacheData, "data")) {
       fetchInstance.state.data = cacheData.data;
       fetchInstance.state.params = cacheData.params;
       if (
@@ -102,9 +107,13 @@ const useCachePlugin: Plugin<any, any[]> = (
 
   return {
     onBefore: (params) => {
-      const cacheData = _getCache(cacheKey, params);
+      const cacheData = _getCache(cacheKey, params, true);
 
-      if (!cacheData || !Object.hasOwnProperty.call(cacheData, 'data') || onlySetCache) {
+      if (
+        !cacheData ||
+        !Object.hasOwnProperty.call(cacheData, "data") ||
+        onlySetCache
+      ) {
         return {};
       }
 
@@ -115,19 +124,23 @@ const useCachePlugin: Plugin<any, any[]> = (
       ) {
         return {
           loading: false,
-          data: cacheData ? {
-              ...cacheData?.data,
-              isCache: true
-            } : undefined,
+          data: cacheData
+            ? {
+                ...cacheData?.data,
+                isCache: true,
+              }
+            : undefined,
           returnNow: true,
         };
       } else {
         // If the data is stale, return data, and request continue
         return {
-          data: cacheData ? {
-            ...cacheData?.data,
-            isCache: true
-          } : undefined,
+          data: cacheData
+            ? {
+                ...cacheData?.data,
+                isCache: true,
+              }
+            : undefined,
         };
       }
     },

@@ -48,6 +48,8 @@ export interface PluginReturn<TData, TParams extends any[]> {
 
 export interface Options<TData, TParams extends any[]> {
   manual?: boolean;
+  onGetCacheBefore?: (params?: TParams) => void;
+  onGetCacheAfter?: (params?: TParams) => void;
   onInit?: (params?: TParams) => void;
   onBefore?: (params: TParams) => void;
   onSuccess?: (data: TData, params: TParams) => void;
