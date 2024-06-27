@@ -1,6 +1,6 @@
 {
   "name": "@qzc/taro-hooks",
-  "version": "0.0.1-alpha.15",
+  "version": "0.0.2",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
