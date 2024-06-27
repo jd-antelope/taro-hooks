@@ -16,6 +16,7 @@ export type Subscribe = () => void;
 
 export interface FetchState<TData, TParams extends any[]> {
   loading: boolean;
+  isReal?: boolean;
   params?: TParams;
   data?: TData;
   error?: Error;

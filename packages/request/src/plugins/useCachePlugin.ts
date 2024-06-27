@@ -22,6 +22,8 @@ const useCachePlugin: Plugin<any, any[]> = (
     onlySetCache = false,
     onGetCacheBefore,
     onGetCacheAfter,
+    filterErrorData,
+    sliceRender,
   }
 ) => {
   const unSubscribeRef = useRef<() => void>();
@@ -108,7 +110,6 @@ const useCachePlugin: Plugin<any, any[]> = (
   return {
     onBefore: (params) => {
       const cacheData = _getCache(cacheKey, params, true);
-
       if (
         !cacheData ||
         !Object.hasOwnProperty.call(cacheData, "data") ||
@@ -116,7 +117,6 @@ const useCachePlugin: Plugin<any, any[]> = (
       ) {
         return {};
       }
-
       // If the data is fresh, stop request
       if (
         staleTime === -1 ||
@@ -146,7 +146,6 @@ const useCachePlugin: Plugin<any, any[]> = (
     },
     onRequest: (service, args) => {
       let servicePromise = cachePromise.getCachePromise(cacheKey);
-
       // If has servicePromise, and is not trigger by self, then use it
       if (servicePromise && servicePromise !== currentPromiseRef.current) {
         return { servicePromise };
@@ -158,7 +157,26 @@ const useCachePlugin: Plugin<any, any[]> = (
       return { servicePromise };
     },
     onSuccess: (data, params) => {
-      if (cacheKey) {
+      const cacheData = _getCache(cacheKey, params, true);
+      if (filterErrorData?.(data) && cacheData) {
+        fetchInstance.setState({
+          error: new Error("Request failed with status code 200"),
+          loading: false,
+        });
+        return;
+      } else {
+        // 是否启动切片
+        if (sliceRender && typeof sliceRender === "function") {
+          sliceRender(data, fetchInstance);
+        } else {
+          fetchInstance.setState({
+            data: data,
+            error: undefined,
+            loading: false,
+          });
+        }
+      }
+      if (cacheKey && !filterErrorData?.(data)) {
         // cancel subscribe, avoid trgger self
         unSubscribeRef.current?.();
         _setCache(cacheKey, {

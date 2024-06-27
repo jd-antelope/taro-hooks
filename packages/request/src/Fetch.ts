@@ -98,28 +98,6 @@ export default class Fetch<TData, TParams extends any[]> {
         // prevent run.then when request is canceled
         return new Promise(() => {});
       }
-
-      if (this.options.filterErrorData?.(res)) {
-        this.setState({
-          error: new Error("Request failed with status code 200"),
-          loading: false,
-        });
-      } else {
-        // 是否启动切片
-        if (
-          this.options.sliceRender &&
-          typeof this.options.sliceRender === "function"
-        ) {
-          this.options.sliceRender(res, this);
-        } else {
-          this.setState({
-            data: res,
-            error: undefined,
-            loading: false,
-          });
-        }
-      }
-
       this.options.onSuccess?.(res, params);
       this.runPluginHandler("onSuccess", res, params);
 

@@ -64,13 +64,11 @@ importers:
         specifier: 1.0.0-rc.20
         version: 1.0.0-rc.20(@algolia/client-search@4.20.0)(@types/node@20.12.11)(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.13.0)
 
-  docs: {}
-
   packages/core:
     dependencies:
       '@tarojs/taro':
         specifier: '>= 3.4.x'
-        version: 3.6.17
+        version: 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
       react:
         specifier: ^16.8.0 || ^17.0.0 || ^18.0.0
         version: 18.2.0
@@ -81,11 +79,11 @@ importers:
   packages/request:
     dependencies:
       '@qzc/taro-hooks':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../core
       '@tarojs/taro':
         specifier: '>= 3.4.x'
-        version: 3.6.17
+        version: 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
       '@tarojs/taro-h5':
         specifier: '>= 3.4.x'
         version: 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
@@ -837,10 +835,10 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@tarojs/components': 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
+      '@tarojs/components': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(react@18.2.0)(vue@3.3.4)
       '@tarojs/runtime': 3.6.17
       '@tarojs/shared': 3.6.17
-      '@tarojs/taro': 3.6.17
+      '@tarojs/taro': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
       classnames: 2.3.2
       csstype: 3.1.2
       memoize-one: 6.0.0
@@ -850,9 +848,11 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-native'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
     dev: false
 
-  /@tarojs/components@3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4):
+  /@tarojs/components@3.6.17(@types/react@18.2.28)(postcss@8.4.31)(react@18.2.0)(vue@3.3.4):
     resolution: {integrity: sha512-VlqPIiFJR8yXizY1sknT/EzrQqyZlsS5mjPNV/sFkBoUMkl4Sa1qQ0ExiweywQ/U7dpU5p4cSl5Zb1q9H6FpwQ==}
     peerDependencies:
       '@types/react': '*'
@@ -868,8 +868,8 @@ packages:
     dependencies:
       '@stencil/core': 2.22.3
       '@tarojs/components-advanced': 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
-      '@tarojs/router': 3.6.17
-      '@tarojs/taro': 3.6.17
+      '@tarojs/router': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
+      '@tarojs/taro': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
       '@types/react': 18.2.28
       classnames: 2.3.2
       hls.js: 1.4.12
@@ -879,19 +879,28 @@ packages:
       vue: 3.3.4
       weui: 1.1.3
     transitivePeerDependencies:
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - postcss
       - react
     dev: false
 
-  /@tarojs/router@3.6.17:
+  /@tarojs/router@3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4):
     resolution: {integrity: sha512-2H/A5SDyGx7Bsa17obHiDAevwwhsbKCHp+0+vNY/VHhZTRRvd2MAmizEJQZWZDcUkz2XACFV00yHiQRZX4tetA==}
     dependencies:
       '@tarojs/runtime': 3.6.17
-      '@tarojs/taro': 3.6.17
+      '@tarojs/taro': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
       dingtalk-jsapi: 2.15.4
       history: 5.3.0
       mobile-detect: 1.4.5
       query-string: 7.1.3
       universal-router: 8.3.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - postcss
+      - vue
     dev: false
 
   /@tarojs/runtime@3.6.17:
@@ -909,8 +918,8 @@ packages:
     resolution: {integrity: sha512-om7UWwY34uNfxOgOorQDXUMK9p2Qq4LPgzuY1plWoLYvI0UlFgKkRf4tuU3FnWK7If3Mqf3YgOTgpyD9aMa1cA==}
     dependencies:
       '@tarojs/api': 3.6.17
-      '@tarojs/components': 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
-      '@tarojs/router': 3.6.17
+      '@tarojs/components': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(react@18.2.0)(vue@3.3.4)
+      '@tarojs/router': 3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4)
       '@tarojs/runtime': 3.6.17
       '@tarojs/shared': 3.6.17
       abortcontroller-polyfill: 1.7.5
@@ -924,15 +933,38 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-native'
+      - '@types/webpack'
+      - '@types/webpack-dev-server'
+      - postcss
       - react
       - vue
     dev: false
 
-  /@tarojs/taro@3.6.17:
+  /@tarojs/taro@3.6.17(@types/react@18.2.28)(postcss@8.4.31)(vue@3.3.4):
     resolution: {integrity: sha1-C82Sp2r8R5C3bspcLE0/fEL/uHE=, tarball: http://registry.m.jd.com/@tarojs/taro/download/@tarojs/taro-3.6.17.tgz}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/webpack': '*'
+      '@types/webpack-dev-server': '*'
+      postcss: '*'
+      vue: '*'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/webpack':
+        optional: true
+      '@types/webpack-dev-server':
+        optional: true
+      postcss:
+        optional: true
+      vue:
+        optional: true
     dependencies:
       '@tarojs/api': 3.6.17
       '@tarojs/runtime': 3.6.17
+      '@types/react': 18.2.28
+      postcss: 8.4.31
+      vue: 3.3.4
     dev: false
 
   /@tsconfig/node10@1.0.9:
