@@ -50,7 +50,7 @@ export interface PluginReturn<TData, TParams extends any[]> {
 
 export interface Options<TData, TParams extends any[]> {
   /**初始loading状态 */
-  initLoading?:boolean;
+  initLoading?: boolean;
   manual?: boolean;
   onGetCacheBefore?: (params?: TParams) => void;
   onGetCacheAfter?: (params?: TParams) => void;
@@ -126,6 +126,7 @@ export type Plugin<TData, TParams extends any[]> = {
 
 export interface Result<TData, TParams extends any[]> {
   loading: boolean;
+  isReal?: boolean;
   data?: TData;
   error?: Error;
   params: TParams | [];
