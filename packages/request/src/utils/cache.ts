@@ -97,6 +97,11 @@ const getCache = ({
   const response = supportStorage
     ? getStorageSync(String(key))
     : (cache.get(String(key)) as any);
+
+  if (typeof response === 'string'){
+    return null;
+  }
+
   isReal && onGetCacheAfter && onGetCacheAfter();
   if (response.cacheTime && response.preTimer) {
     const currentTime = new Date().getTime();

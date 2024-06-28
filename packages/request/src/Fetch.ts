@@ -29,7 +29,7 @@ export default class Fetch<TData, TParams extends any[]> {
   ) {
     this.state = {
       ...this.state,
-      loading: !options.manual,
+      loading: !!options.initLoading,
       ...initState,
     };
   }
@@ -99,6 +99,23 @@ export default class Fetch<TData, TParams extends any[]> {
         // prevent run.then when request is canceled
         return new Promise(() => {});
       }
+      if (!this.options.cacheKey) {
+        // 是否启动切片
+        if (
+          this.options.sliceRender &&
+          typeof this.options.sliceRender === "function"
+        ) {
+          this.options.sliceRender(res, this);
+        } else {
+          this.setState({
+            data: res,
+            error: undefined,
+            loading: false,
+            isReal: true,
+          });
+        }
+      }
+
       this.options.onSuccess?.(res, params);
       this.runPluginHandler("onSuccess", res, params);
 

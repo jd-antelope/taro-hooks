@@ -49,6 +49,8 @@ export interface PluginReturn<TData, TParams extends any[]> {
 // for useRequestImplement
 
 export interface Options<TData, TParams extends any[]> {
+  /**初始loading状态 */
+  initLoading?:boolean;
   manual?: boolean;
   onGetCacheBefore?: (params?: TParams) => void;
   onGetCacheAfter?: (params?: TParams) => void;
