@@ -16,6 +16,7 @@ export type Subscribe = () => void;
 
 export interface FetchState<TData, TParams extends any[]> {
   loading: boolean;
+  /**是否是真实接口数据 */
   isReal?: boolean;
   params?: TParams;
   data?: TData;
@@ -58,7 +59,7 @@ export interface Options<TData, TParams extends any[]> {
   // formatResult?: (res: any) => TData;
   onFinally?: (params: TParams, data?: TData, e?: Error) => void;
 
-  filterErrorData?: (res: any) => any;
+  isHasErrorDataFn?: (res: any) => any;
   sliceRender?: (res: any, fetchInstance: Fetch<TData, TParams>) => any;
   defaultParams?: TParams;
 

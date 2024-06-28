@@ -66,6 +66,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     loading: fetchInstance.state.loading,
     data: fetchInstance.state.data,
     error: fetchInstance.state.error,
+    isReal:fetchInstance.state.isReal,
     params: fetchInstance.state.params || [],
     cancel: useMemoizedFn(fetchInstance.cancel.bind(fetchInstance)),
     refresh: useMemoizedFn(fetchInstance.refresh.bind(fetchInstance)),

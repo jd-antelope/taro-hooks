@@ -18,6 +18,7 @@ export default class Fetch<TData, TParams extends any[]> {
     data: undefined,
     error: undefined,
     cacheKeyParams: undefined,
+    isReal: undefined,
   };
 
   constructor(

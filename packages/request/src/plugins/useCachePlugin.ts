@@ -22,7 +22,7 @@ const useCachePlugin: Plugin<any, any[]> = (
     onlySetCache = false,
     onGetCacheBefore,
     onGetCacheAfter,
-    filterErrorData,
+    isHasErrorDataFn,
     sliceRender,
   }
 ) => {
@@ -158,7 +158,7 @@ const useCachePlugin: Plugin<any, any[]> = (
     },
     onSuccess: (data, params) => {
       const cacheData = _getCache(cacheKey, params, true);
-      if (filterErrorData?.(data) && cacheData) {
+      if (isHasErrorDataFn?.(data) && cacheData) {
         fetchInstance.setState({
           error: new Error("Request failed with status code 200"),
           loading: false,
@@ -173,10 +173,12 @@ const useCachePlugin: Plugin<any, any[]> = (
             data: data,
             error: undefined,
             loading: false,
+            // 标识是真实接口
+            isReal: true,
           });
         }
       }
-      if (cacheKey && !filterErrorData?.(data)) {
+      if (cacheKey && !isHasErrorDataFn?.(data)) {
         // cancel subscribe, avoid trgger self
         unSubscribeRef.current?.();
         _setCache(cacheKey, {
