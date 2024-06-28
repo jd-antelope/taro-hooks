@@ -64,7 +64,7 @@ export default class Fetch<TData, TParams extends any[]> {
     } = this.runPluginHandler("onBefore", params);
 
     // stop request
-    if (stopNow) {
+    if (stopNow ) {
       return new Promise(() => {});
     }
 
@@ -75,7 +75,8 @@ export default class Fetch<TData, TParams extends any[]> {
     });
 
     // return now
-    if (returnNow) {
+    if (returnNow || params?.[0]?.returnNow) {
+      console.log('returnNow:',params);
       return Promise.resolve(state.data);
     }
 
