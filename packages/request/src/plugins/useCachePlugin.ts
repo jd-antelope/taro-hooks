@@ -19,7 +19,6 @@ const useCachePlugin: Plugin<any, any[]> = (
     cacheKeyParams,
     cacheKeyDataNum = 3,
     cacheVersion = "",
-    onlySetCache = false,
     onGetCacheBefore,
     onGetCacheAfter,
     isHasErrorDataFn,
@@ -113,8 +112,9 @@ const useCachePlugin: Plugin<any, any[]> = (
       if (
         !cacheData ||
         !Object.hasOwnProperty.call(cacheData, "data") ||
-        onlySetCache
+        params?.[0]?.onlySetCache
       ) {
+        console.log("[cache]-仅使用缓存数据");
         return {};
       }
       // If the data is fresh, stop request

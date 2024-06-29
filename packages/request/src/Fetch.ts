@@ -57,14 +57,22 @@ export default class Fetch<TData, TParams extends any[]> {
 
     this.count += 1;
     const currentCount = this.count;
+    // 得到缓存状态前
+    if (params?.[0]?.onGetCacheBefore) {
+      params?.[0]?.onGetCacheBefore();
+    }
     const {
       stopNow = false,
       returnNow = false,
       ...state
     } = this.runPluginHandler("onBefore", params);
 
+    if (params?.[0]?.onGetCacheAfter) {
+      params?.[0]?.onGetCacheAfter();
+    }
+
     // stop request
-    if (stopNow ) {
+    if (stopNow) {
       return new Promise(() => {});
     }
 
@@ -76,7 +84,6 @@ export default class Fetch<TData, TParams extends any[]> {
 
     // return now
     if (returnNow || params?.[0]?.returnNow) {
-      console.log('returnNow:',params);
       return Promise.resolve(state.data);
     }
 

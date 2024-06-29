@@ -102,7 +102,6 @@ export interface Options<TData, TParams extends any[]> {
   cacheKeyParams?: any;
   cacheKeyDataNum?: number;
   cacheVersion?: string;
-  onlySetCache?: boolean;
 
   // retry
   retryCount?: number;
