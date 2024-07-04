@@ -58,7 +58,7 @@ export default class Fetch<TData, TParams extends any[]> {
     this.count += 1;
     const currentCount = this.count;
     // 得到缓存状态前
-    if (params?.[0]?.onGetCacheBefore) {
+    if (!params?.[0]?.onlySetCache && params?.[0]?.onGetCacheBefore) {
       params?.[0]?.onGetCacheBefore();
     }
     const {
@@ -67,8 +67,8 @@ export default class Fetch<TData, TParams extends any[]> {
       ...state
     } = this.runPluginHandler("onBefore", params);
 
-    if (params?.[0]?.onGetCacheAfter) {
-      params?.[0]?.onGetCacheAfter();
+    if (!params?.[0]?.onlySetCache && params?.[0]?.onGetCacheAfter) {
+      params?.[0]?.onGetCacheAfter(state);
     }
 
     // stop request
@@ -102,6 +102,10 @@ export default class Fetch<TData, TParams extends any[]> {
       }
 
       const res = await servicePromise;
+
+      if (params?.[0]?.getResAfter) {
+        params?.[0]?.getResAfter(state);
+      }
 
       if (currentCount !== this.count) {
         // prevent run.then when request is canceled
