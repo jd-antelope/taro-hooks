@@ -101,6 +101,10 @@ export default class Fetch<TData, TParams extends any[]> {
         servicePromise = this.serviceRef.current(...params);
       }
 
+      if (params?.[0]?.getResBefore) {
+        params?.[0]?.getResBefore(state);
+      }
+
       const res = await servicePromise;
 
       if (params?.[0]?.getResAfter) {
