@@ -24,9 +24,6 @@ importers:
       '@types/fs-extra':
         specifier: ^11.0.2
         version: 11.0.2
-      '@types/lodash':
-        specifier: ^4.17.1
-        version: 4.17.1
       '@types/node':
         specifier: ^20.12.11
         version: 20.12.11
@@ -88,10 +85,10 @@ importers:
         specifier: '>= 3.4.x'
         version: 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
       '@types/lodash-es':
-        specifier: '>=4.17.12'
+        specifier: 4.17.12
         version: 4.17.12
       lodash-es:
-        specifier: '>=4.17.21'
+        specifier: 4.17.21
         version: 4.17.21
       react:
         specifier: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -1012,11 +1009,12 @@ packages:
   /@types/lodash-es@4.17.12:
     resolution: {integrity: sha1-ZfbR5fgFOap8+/yWLeXe8M9PNBs=, tarball: http://registry.m.jd.com/@types/lodash-es/download/@types/lodash-es-4.17.12.tgz}
     dependencies:
-      '@types/lodash': 4.17.1
+      '@types/lodash': 4.17.7
     dev: false
 
-  /@types/lodash@4.17.1:
-    resolution: {integrity: sha512-X+2qazGS3jxLAIz5JDXDzglAF3KpijdhFxlf/V1+hEsOUc+HnWi81L/uv/EvGuV90WY+7mPGFCUDGfQC3Gj95Q==}
+  /@types/lodash@4.17.7:
+    resolution: {integrity: sha1-L3dry1OtyeE7LA39ST38vX3kNhI=, tarball: http://registry.m.jd.com/@types/lodash/download/@types/lodash-4.17.7.tgz}
+    dev: false
 
   /@types/markdown-it@13.0.2:
     resolution: {integrity: sha512-Tla7hH9oeXHOlJyBFdoqV61xWE9FZf/y2g+gFVwQ2vE1/eBzjUno5JCd3Hdb5oATve5OF6xNjZ/4VIZhVVx+hA==}

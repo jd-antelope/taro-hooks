@@ -1,5 +1,5 @@
 import { getStorageSync, setStorage, removeStorage } from "@tarojs/taro";
-import cloneDeep from 'lodash-es/cloneDeep';
+import { cloneDeep } from "lodash-es";
 
 // type Timer = ReturnType<typeof setTimeout>;
 type CachedKey = string | number;
@@ -98,7 +98,7 @@ const getCache = ({
     ? getStorageSync(String(key))
     : (cache.get(String(key)) as any);
 
-  if (typeof response === 'string'){
+  if (typeof response === "string") {
     return null;
   }
 
