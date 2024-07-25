@@ -1,5 +1,5 @@
 import { getStorageSync, setStorage, removeStorage } from "@tarojs/taro";
-import { cloneDeep } from "lodash";
+import cloneDeep from 'lodash-es/cloneDeep';
 
 // type Timer = ReturnType<typeof setTimeout>;
 type CachedKey = string | number;

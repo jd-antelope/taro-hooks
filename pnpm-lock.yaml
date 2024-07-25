@@ -87,7 +87,10 @@ importers:
       '@tarojs/taro-h5':
         specifier: '>= 3.4.x'
         version: 3.6.17(@types/react@18.2.28)(react@18.2.0)(vue@3.3.4)
-      lodash:
+      '@types/lodash-es':
+        specifier: '>=4.17.12'
+        version: 4.17.12
+      lodash-es:
         specifier: '>=4.17.21'
         version: 4.17.21
       react:
@@ -1006,9 +1009,14 @@ packages:
     resolution: {integrity: sha512-pTjcqY9E4nOI55Wgpz7eiI8+LzdYnw3qxXCfHyBDdPbYvbyLgWLJGh8EdPvqawwMK1Uo1794AUkkR38Fr0g+2g==}
     dev: true
 
+  /@types/lodash-es@4.17.12:
+    resolution: {integrity: sha1-ZfbR5fgFOap8+/yWLeXe8M9PNBs=, tarball: http://registry.m.jd.com/@types/lodash-es/download/@types/lodash-es-4.17.12.tgz}
+    dependencies:
+      '@types/lodash': 4.17.1
+    dev: false
+
   /@types/lodash@4.17.1:
     resolution: {integrity: sha512-X+2qazGS3jxLAIz5JDXDzglAF3KpijdhFxlf/V1+hEsOUc+HnWi81L/uv/EvGuV90WY+7mPGFCUDGfQC3Gj95Q==}
-    dev: true
 
   /@types/markdown-it@13.0.2:
     resolution: {integrity: sha512-Tla7hH9oeXHOlJyBFdoqV61xWE9FZf/y2g+gFVwQ2vE1/eBzjUno5JCd3Hdb5oATve5OF6xNjZ/4VIZhVVx+hA==}
@@ -2416,10 +2424,6 @@ packages:
   /lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
     dev: true
-
-  /lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: false
 
   /loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
