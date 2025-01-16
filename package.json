@@ -21,8 +21,8 @@
   },
   "homepage": "http://xingyun.jd.com/codingRoot/pre-warehouse/taro-hooks/blob/master/README.md",
   "dependencies": {
-    "@qzc/taro-hooks": "workspace:^",
-    "@qzc/use-request": "workspace:^"
+    "@jd-antelope/taro-hooks": "workspace:^",
+    "@jd-antelope/use-request": "workspace:^"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.5",

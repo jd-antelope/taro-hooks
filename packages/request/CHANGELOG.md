@@ -1,4 +1,4 @@
-# @qzc/use-request
+# @jd-antelope/use-request
 
 ## 0.0.1
 
@@ -6,4 +6,4 @@
 
 - 0.0.1-alpha.1
 - Updated dependencies
-  - @qzc/taro-hooks@0.0.1
+  - @jd-antelope/taro-hooks@0.0.1

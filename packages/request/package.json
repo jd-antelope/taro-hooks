@@ -1,6 +1,6 @@
 {
-  "name": "@qzc/use-request",
-  "version": "0.0.19",
+  "name": "@jd-antelope/use-request",
+  "version": "1.0.0",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -28,10 +28,10 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@qzc/taro-hooks": "workspace:*"
+    "@jd-antelope/taro-hooks": "workspace:*"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://registry.m.jd.com/"
+    "registry": "https://registry.npmjs.org/"
   }
 }

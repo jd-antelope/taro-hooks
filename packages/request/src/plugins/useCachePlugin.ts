@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useCreation, useUnmount } from "@qzc/taro-hooks";
+import { useCreation, useUnmount } from "@jd-antelope/taro-hooks";
 import type { Plugin } from "../types";
 import * as cache from "../utils/cache";
 import type { CachedData } from "../utils/cache";

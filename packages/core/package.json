@@ -1,6 +1,6 @@
 {
-  "name": "@qzc/taro-hooks",
-  "version": "0.0.19",
+  "name": "@jd-antelope/taro-hooks",
+  "version": "1.0.0",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -26,6 +26,6 @@
   "license": "ISC",
   "publishConfig": {
     "access": "public",
-    "registry": "http://registry.m.jd.com/"
+    "registry": "https://registry.npmjs.org/"
   }
 }

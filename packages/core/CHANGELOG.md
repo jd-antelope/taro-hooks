@@ -1,4 +1,4 @@
-# @qzc/taro-hooks
+# @jd-antelope/taro-hooks
 
 ## 0.0.1
 

@@ -5,7 +5,7 @@ import {
   useUnmount,
   useUpdate,
   useMemoizedFn,
-} from "@qzc/taro-hooks";
+} from "@jd-antelope/taro-hooks";
 import Fetch from "./Fetch";
 import type { Options, Plugin, Result, Service } from "./types";
 

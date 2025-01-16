@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useUpdateEffect, useVisible } from '@qzc/taro-hooks';
+import { useUpdateEffect, useVisible } from '@jd-antelope/taro-hooks';
 import type { Plugin, Timeout } from '../types';
 
 const usePollingPlugin: Plugin<any, any[]> = (
